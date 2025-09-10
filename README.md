@@ -3,7 +3,7 @@
 [Серверная часть](https://github.com/Mikhas3009/izi-api-introduction-backend-)
 
 ## Ссылка на сайт
-[Менеджер задач](http://147.45.71.150:4000)
+[Менеджер задач](http://147.45.71.150:4200)
 
 # Запуск приложения
 
@@ -14,8 +14,8 @@
 1. Клонируйте репозиторий:
    git clone <https://github.com/Mikhas3009/izi-api-introduction-frontend-.git>
 2. Соберите и запустите контейнеры
-    docker build -t my-angular-dev .
-    docker run -p 4200:4200 my-angular-dev
+    docker build -t frontend:latest .
+    docker run -p 8080:8080 frontend 
 3. Приложение доступно по адресу: http://localhost:4200
 
 # Стуктура проекта

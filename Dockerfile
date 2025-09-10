@@ -1,19 +1,21 @@
-FROM node:22-alpine
 
-# Устанавливаем рабочую директорию
+FROM node:22-alpine AS build
 WORKDIR /app
 
-# Копируем package.json и package-lock.json (если есть)
 COPY package*.json ./
-
-# Устанавливаем зависимости
-RUN npm install
-
-# Копируем весь исходный код
+RUN npm install -g @angular/cli@17
+RUN npm ci
 COPY . .
+RUN ng build
 
-# Открываем порт 4200 (стандартный порт ng serve)
-EXPOSE 4200
+FROM nginx:alpine
 
-# Запускаем Angular в режиме разработки
-CMD ["npm", "start"]
+# Меняем конфиг nginx-а на собственный
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Копируем собранное приложение из предыдущего этапа в рабочую директорию nginx
+COPY --from=build /app/dist/Frontend/browser /usr/share/nginx/html
+EXPOSE 8080
+
+# Запускаем nginx
+CMD ["nginx", "-g", "daemon off;"]
