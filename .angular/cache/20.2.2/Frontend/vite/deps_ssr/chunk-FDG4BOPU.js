@@ -1,18 +1,26 @@
 import { createRequire } from 'module';const require = createRequire(import.meta.url);
 import {
-  zindexutils
-} from "./chunk-Y4CLGB5N.js";
-import {
   Button,
   DomHandler,
   blockBodyScroll,
   unblockBodyScroll
 } from "./chunk-VHRR67YX.js";
 import {
+  zindexutils
+} from "./chunk-Y4CLGB5N.js";
+import {
   TimesIcon,
   WindowMaximizeIcon,
   WindowMinimizeIcon
 } from "./chunk-2KUNWBXV.js";
+import {
+  animate,
+  animation,
+  style,
+  transition,
+  trigger,
+  useAnimation
+} from "./chunk-KSD5EQH4.js";
 import {
   BaseComponent
 } from "./chunk-5GLTXBVK.js";
@@ -37,14 +45,6 @@ import {
   v,
   vt
 } from "./chunk-JWKD2YXT.js";
-import {
-  animate,
-  animation,
-  style,
-  transition,
-  trigger,
-  useAnimation
-} from "./chunk-KSD5EQH4.js";
 import {
   CommonModule,
   NgClass,
@@ -2031,4 +2031,4 @@ export {
   Dialog,
   DialogModule
 };
-//# sourceMappingURL=chunk-MEDBV5VF.js.map
+//# sourceMappingURL=chunk-FDG4BOPU.js.map

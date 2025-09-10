@@ -12,8 +12,9 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService, ConfirmationService } from 'primeng/api';
 
 import { Observable, map } from 'rxjs';
-import { Task, TaskService } from '../services/task.service';
+import { TaskService } from '../services/task.service';
 import { BaseResponseInterface } from '../interfaces/base-response.interface';
+import { Task } from '../interfaces/task.interface';
 
 @Component({
     selector: 'app-task',
@@ -27,11 +28,10 @@ import { BaseResponseInterface } from '../interfaces/base-response.interface';
         DialogModule,
         InputTextModule,
         ConfirmDialogModule,
-        ToastModule
+        ToastModule,
     ],
     providers: [MessageService, ConfirmationService],
     templateUrl: './task.component.html',
-    styleUrls: ['./task.component.scss']
 })
 export class TaskComponent {
     tasks$!: Observable<Task[]>;
@@ -41,24 +41,28 @@ export class TaskComponent {
     constructor(
         private taskService: TaskService,
         private messageService: MessageService,
-        private confirmationService: ConfirmationService
-    ) { }
+        private confirmationService: ConfirmationService,
+    ) {}
 
     ngOnInit(): void {
         this.loadTasks();
     }
 
     loadTasks(): void {
-        this.tasks$ = this.taskService.getTasks().pipe(
-            map((response: BaseResponseInterface<Task[]>) => response.data ?? [])
-        );
+        this.tasks$ = this.taskService
+            .getTasks()
+            .pipe(map((response: BaseResponseInterface<Task[]>) => response.data ?? []));
     }
 
     toggleCompleted(task: Task): void {
-        this.taskService.updateTask(task.taskID, !task.taskIsCompleted).subscribe(response => {
+        this.taskService.updateTask(task.taskID, !task.taskIsCompleted).subscribe((response) => {
             if (response.success && response.data) {
+                this.messageService.add({
+                    severity: 'info',
+                    summary: 'Обновлено',
+                    detail: 'Статус изменён',
+                });
                 task.taskIsCompleted = response.data.taskIsCompleted;
-                this.messageService.add({ severity: 'info', summary: 'Обновлено', detail: 'Статус изменён' });
             }
         });
     }
@@ -67,13 +71,17 @@ export class TaskComponent {
         this.confirmationService.confirm({
             message: 'Вы уверены, что хотите удалить задачу?',
             accept: () => {
-                this.taskService.deleteTask(task.taskID).subscribe(response => {
+                this.taskService.deleteTask(task.taskID).subscribe((response) => {
                     if (response.success) {
                         this.loadTasks();
-                        this.messageService.add({ severity: 'success', summary: 'Удалено', detail: 'Задача удалена' });
+                        this.messageService.add({
+                            severity: 'success',
+                            summary: 'Удалено',
+                            detail: 'Задача удалена',
+                        });
                     }
                 });
-            }
+            },
         });
     }
 
@@ -83,12 +91,16 @@ export class TaskComponent {
 
     createTask(): void {
         if (!this.newTaskTitle.trim()) return;
-        this.taskService.addTask(this.newTaskTitle).subscribe(response => {
+        this.taskService.addTask(this.newTaskTitle).subscribe((response) => {
             if (response.success) {
                 this.newTaskTitle = '';
                 this.displayDialog = false;
                 this.loadTasks();
-                this.messageService.add({ severity: 'success', summary: 'Создано', detail: 'Задача добавлена' });
+                this.messageService.add({
+                    severity: 'success',
+                    summary: 'Создано',
+                    detail: 'Задача добавлена',
+                });
             }
         });
     }

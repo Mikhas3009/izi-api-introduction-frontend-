@@ -1,16 +1,16 @@
 import { createRequire } from 'module';const require = createRequire(import.meta.url);
 import {
   Title
-} from "./chunk-KMTXT7YH.js";
-import {
-  HTTP_ROOT_INTERCEPTOR_FNS
-} from "./chunk-EQDQZGMG.js";
+} from "./chunk-U4RLDXYJ.js";
 import {
   BrowserDomAdapter,
   BrowserModule,
   EVENT_MANAGER_PLUGINS,
   EventManagerPlugin
 } from "./chunk-655LKAHX.js";
+import {
+  HTTP_ROOT_INTERCEPTOR_FNS
+} from "./chunk-EQDQZGMG.js";
 import {
   APP_BASE_HREF,
   HashLocationStrategy,
@@ -34642,9 +34642,9 @@ var InlineCriticalCssProcessor = class extends BeastiesBase {
   constructor(readFile2, outputPath) {
     super({
       logger: {
-        // eslint-disable-next-line no-console
+         
         warn: (s) => console.warn(s),
-        // eslint-disable-next-line no-console
+         
         error: (s) => console.error(s),
         info: () => {
         }
@@ -35379,4 +35379,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-IHECUDFB.js.map
+//# sourceMappingURL=chunk-V6YH2EAA.js.map

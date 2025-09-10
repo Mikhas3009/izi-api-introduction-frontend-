@@ -3,23 +3,9 @@ import {
   ScrollerModule
 } from "./chunk-5BQWI7XT.js";
 import {
-  BaseEditableHolder,
-  Checkbox,
-  CheckboxModule
-} from "./chunk-5A4KZU2N.js";
-import {
   InputText,
   InputTextModule
-} from "./chunk-U4YYYO7O.js";
-import "./chunk-NLG6EUNE.js";
-import {
-  FormsModule,
-  NG_VALUE_ACCESSOR,
-  NgControl,
-  NgControlStatus,
-  NgModel,
-  RequiredValidator
-} from "./chunk-PX754M32.js";
+} from "./chunk-OJE3G3AC.js";
 import {
   ObjectUtils,
   UniqueComponentId,
@@ -75,6 +61,20 @@ import {
   TimesIcon,
   TrashIcon
 } from "./chunk-3KYC4PRS.js";
+import {
+  BaseEditableHolder,
+  Checkbox,
+  CheckboxModule
+} from "./chunk-5A4KZU2N.js";
+import "./chunk-NLG6EUNE.js";
+import {
+  FormsModule,
+  NG_VALUE_ACCESSOR,
+  NgControl,
+  NgControlStatus,
+  NgModel,
+  RequiredValidator
+} from "./chunk-PX754M32.js";
 import {
   BaseIcon,
   CheckIcon

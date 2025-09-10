@@ -20018,7 +20018,7 @@ var require_side_channel_list = __commonJS({
       } else {
         objects.next = /** @type {import('./list.d.ts').ListNode<typeof value, typeof key>} */
         {
-          // eslint-disable-line no-param-reassign, no-extra-parens
+           
           key,
           next: objects.next,
           value
@@ -20617,7 +20617,7 @@ var require_get_intrinsic = __commonJS({
       "%encodeURIComponent%": encodeURIComponent,
       "%Error%": $Error,
       "%eval%": eval,
-      // eslint-disable-line no-eval
+       
       "%EvalError%": $EvalError,
       "%Float16Array%": typeof Float16Array === "undefined" ? undefined2 : Float16Array,
       "%Float32Array%": typeof Float32Array === "undefined" ? undefined2 : Float32Array,
@@ -21794,7 +21794,7 @@ var require_parse = __commonJS({
         decodeDotInKeys: typeof opts.decodeDotInKeys === "boolean" ? opts.decodeDotInKeys : defaults.decodeDotInKeys,
         decoder: typeof opts.decoder === "function" ? opts.decoder : defaults.decoder,
         delimiter: typeof opts.delimiter === "string" || utils.isRegExp(opts.delimiter) ? opts.delimiter : defaults.delimiter,
-        // eslint-disable-next-line no-implicit-coercion, no-extra-parens
+         
         depth: typeof opts.depth === "number" || opts.depth === false ? +opts.depth : defaults.depth,
         duplicates,
         ignoreQueryPrefix: opts.ignoreQueryPrefix === true,

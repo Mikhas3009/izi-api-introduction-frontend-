@@ -1,54 +1,55 @@
 <p-table [value]="(tasks$ | async) || []" styleClass="p-datatable-sm">
-  <ng-template pTemplate="header">
-    <tr>
-      <th>ID Задачи</th>
-      <th>Название</th>
-      <th>Статус</th>
-      <th>Действия</th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-task>
-    <tr>
-      <td>{{ task.taskID }}</td>
-      <td>{{ task.taskTitle }}</td>
-      <td>
-        <p-checkbox 
-          [binary]="true" 
-          [ngModel]="task.taskIsCompleted"
-          (onChange)="toggleCompleted(task)">
-        </p-checkbox>
-      </td>
-      <td>
-        <button 
-          pButton 
-          icon="pi pi-trash" 
-          class="p-button-danger p-button-rounded p-button-sm"
-          (click)="deleteTask(task)">
-        </button>
-      </td>
-    </tr>
-  </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th>ID Задачи</th>
+            <th>Название</th>
+            <th>Статус</th>
+            <th>Действия</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-task>
+        <tr>
+            <td>{{ task.taskID }}</td>
+            <td>{{ task.taskTitle }}</td>
+            <td>
+                <p-checkbox
+                    [binary]="true"
+                    [ngModel]="task.taskIsCompleted"
+                    (onChange)="toggleCompleted(task)"
+                >
+                </p-checkbox>
+            </td>
+            <td>
+                <button
+                    pButton
+                    icon="pi pi-trash"
+                    class="p-button-danger p-button-rounded p-button-sm"
+                    (click)="deleteTask(task)"
+                ></button>
+            </td>
+        </tr>
+    </ng-template>
 </p-table>
 
 <p-dialog header="Добавить задачу" [(visible)]="displayDialog" [modal]="true" [closable]="true">
-  <div class="p-fluid">
-    <div class="p-field">
-      <label>Название</label>
-      <input pInputText [(ngModel)]="newTaskTitle" />
+    <div class="p-fluid">
+        <div class="p-field">
+            <label>Название</label>
+            <input pInputText [(ngModel)]="newTaskTitle" />
+        </div>
     </div>
-  </div>
-  <ng-template pTemplate="footer">
-    <button pButton label="Создать" (click)="createTask()"></button>
-  </ng-template>
+    <ng-template pTemplate="footer">
+        <button pButton label="Создать" (click)="createTask()"></button>
+    </ng-template>
 </p-dialog>
 
-<button 
-  pButton 
-  label="Добавить задачу" 
-  icon="pi pi-plus" 
-  class="p-mt-3" 
-  (click)="openDialog()">
-</button>
+<button
+    pButton
+    label="Добавить задачу"
+    icon="pi pi-plus"
+    class="p-mt-3"
+    (click)="openDialog()"
+></button>
 
 <p-toast></p-toast>
 <p-confirmDialog></p-confirmDialog>
