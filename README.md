@@ -15,7 +15,7 @@
    git clone <https://github.com/Mikhas3009/izi-api-introduction-frontend-.git>
 2. Соберите и запустите контейнеры
     docker build -t frontend:latest .
-    docker run -p 8080:8080 frontend 
+    docker run -p 4200:4200 frontend 
 3. Приложение доступно по адресу: http://localhost:4200
 
 # Стуктура проекта
