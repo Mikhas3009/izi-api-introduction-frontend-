@@ -3,7 +3,7 @@
 [Серверная часть](https://github.com/Mikhas3009/izi-api-introduction-backend-)
 
 ## Ссылка на сайт
-[Менеджер задач](http://147.45.71.150:4200)
+[Менеджер задач](https://nkkz.dev/)
 
 # Запуск приложения
 
